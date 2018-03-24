@@ -1,0 +1,13 @@
+<div id="test"></div>
+<script>
+var test=document.getElementById('test');
+try{
+  fetch("https://script.google.com/macros/s/AKfycbzZJM64jziKUqFeU8U56wvdKrMEngB9p7PlJ5jE-kzSKve15b1E/exec")
+  .then(res=>res.json())
+  .then(d=>{ 
+    d=d[0];
+    test.innerHTML=`Data: ${d}<br>Time is: ${d[1]}`;
+  })
+  .catch(e=>console.log('failed fetch'));
+}catch(e){test.textContent='cannot fetch'};
+</script>
