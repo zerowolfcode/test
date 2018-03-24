@@ -1,13 +1,17 @@
 <form id="test"><button onclick="test();return false;">test</button></form>
+<p>Please press the button</p>
 <script>
+var p=document.getElementsByTagName('p')[0];
 var test=()=>{
-  fetch('https://script.google.com/macros/s/AKfycbzZJM64jziKUqFeU8U56wvdKrMEngB9p7PlJ5jE-kzSKve15b1E/exec', {
-    method: 'post',
-    body: document.getElementById('test').innerHTML
-  }).then(res=>res.text())
-  .then(res=>{
-    console.log(res);
-  })
-  .catch(e=>console.log('fail'));
+  try{
+    fetch('https://script.google.com/macros/s/AKfycbzZJM64jziKUqFeU8U56wvdKrMEngB9p7PlJ5jE-kzSKve15b1E/exec', {
+      method: 'post',
+      body: document.getElementById('test').innerHTML
+    }).then(res=>res.text())
+    .then(res=>{
+      p.textContent='success';
+    })
+    .catch(e=>p.textContent='fail');
+  }catch(e){p.textContent=e}
 };
 </script>
