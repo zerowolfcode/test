@@ -1,6 +1,1 @@
-var z={};
-z.d=document;
-console.log('testmodule');
-z.html=(e,h)=>{z.d.getElementById(e).innerHTML=h};
-z.test=()=>{console.log('test')};
-export z;
+export import 'https://cdn.rawgit.com/zerowolfcode/zlib/d2825007/zm.js';
